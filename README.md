@@ -1,39 +1,21 @@
-### Documentation is included in the Documentation folder ###
+# UiPath Calculate Client Security Hash - Solution
+This repository contains the complete solution for the Calculate Client Security Hash exercise from UiPath Academy Automation Developer Professional Training. The project demonstrates key concepts in Robotic Process Automation (RPA) using UiPath Studio, including data extraction, data manipulation, and automation of repetitive tasks.
 
+# Features
+- Orchestrator Integration: Automates the extraction of work items from the UiPath Orchestrator Queue.
+- Data Scraping: Efficiently scrapes client information from the ACME System 1 website.
+- Data Manipulation: Processes the extracted data to calculate the security hash by concatenating the client's ID, Name, and Country.
+- SHA1 Encryption: Implements SHA1 hashing for generating the security hash for each client.
+- Error Handling: Robust error handling and logging for monitoring the workflow’s execution.
+- Modular Design: The workflow is structured into reusable components to enhance maintainability and scalability.
 
-### REFrameWork Template ###
-**Robotic Enterprise Framework**
+# How to Use
+1. Clone this repository to your local machine.
+2. Open the project in UiPath Studio.
+3. Update the Orchestrator and ACME System credentials in the config file.
+4. Run the workflow to calculate and update the security hash for each client work item.
 
-* Built on top of *Transactional Business Process* template
-* Uses *State Machine* layout for the phases of automation project
-* Offers high level logging, exception handling and recovery
-* Keeps external settings in *Config.xlsx* file and Orchestrator assets
-* Pulls credentials from Orchestrator assets and *Windows Credential Manager*
-* Gets transaction data from Orchestrator queue and updates back status
-* Takes screenshots in case of system exceptions
-
-
-### How It Works ###
-
-1. **INITIALIZE PROCESS**
- + ./Framework/*InitiAllSettings* - Load configuration data from Config.xlsx file and from assets
- + ./Framework/*GetAppCredential* - Retrieve credentials from Orchestrator assets or local Windows Credential Manager
- + ./Framework/*InitiAllApplications* - Open and login to applications used throughout the process
-
-2. **GET TRANSACTION DATA**
- + ./Framework/*GetTransactionData* - Fetches transactions from an Orchestrator queue defined by Config("OrchestratorQueueName") or any other configured data source
-
-3. **PROCESS TRANSACTION**
- + *Process* - Process trasaction and invoke other workflows related to the process being automated 
- + ./Framework/*SetTransactionStatus* - Updates the status of the processed transaction (Orchestrator transactions by default): Success, Business Rule Exception or System Exception
-
-4. **END PROCESS**
- + ./Framework/*CloseAllApplications* - Logs out and closes applications used throughout the process
-
-
-### For New Project ###
-
-1. Check the Config.xlsx file and add/customize any required fields and values
-2. Implement InitiAllApplications.xaml and CloseAllApplicatoins.xaml workflows, linking them in the Config.xlsx fields
-3. Implement GetTransactionData.xaml and SetTransactionStatus.xaml according to the transaction type being used (Orchestrator queues by default)
-4. Implement Process.xaml workflow and invoke other workflows related to the process being automated
+# Prerequisites
+1. UiPath Studio installed
+2. Access to UiPath Orchestrator
+3. An account on the ACME System 1 platform
